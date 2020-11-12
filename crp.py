@@ -33,6 +33,7 @@ def smoothDownsampleFeature(f_feature, parameter):
         downsampSmooth = parameter['downsampSmooth']
         stat_window = np.hanning(winLenSmooth)
         stat_window = stat_window / np.sum(stat_window)
+        print(stat_window)
 
         # upfirdn filters and downsamples each column of f_stat_help
         f_feature_stat = np.zeros_like(f_feature)
