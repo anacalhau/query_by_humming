@@ -10,17 +10,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy
 import math
-
-# def visualizeCRP(f_crp,parameter):
-#     if hasattr(parameter,'imagerange')==0:
-#        parameter['imagerange'] = [-1, 1]
-       
-#     if hasattr(parameter,'colormap')==0:
-#         blueSepia = 'gray'(64)^0.8
-#         blueSepia[:,1:2] = blueSepia[:,1:2] * 0.5;
-#         parameter['colormap'] = [flipud('blueSepia'), 'hot'(64)]
-    
-#     return f_crp,parameter
     
 def smoothDownsampleFeature(f_feature, parameter):
     # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -80,38 +69,6 @@ def internal_DCT(l):
 
 
 def pitch_to_CRP(f_pitch, parameter, sideinfo):
-    # if nargin<3:
-    #     sideinfo=[];
-    # if nargin<2:
-    #     parameter=[];
-    # if nargin<1:
-    #     error('Please specify input data f_pitch')    
-    # if isfield(parameter,'coeffsToKeep')==0:
-    #     parameter['coeffsToKeep'] = [55:120]
-    # if isfield(parameter,'applyLogCompr')==0:
-    #     parameter['applyLogCompr'] = 1
-    # if isfield(parameter,'factorLogCompr')==0:
-    #     parameter['factorLogCompr'] = 1000
-    # if isfield(parameter,'addTermLogCompr')==0:
-    #     parameter['addTermLogCompr'] = 1
-    # if isfield(parameter,'normP')==0:
-    #     parameter['normP'] = 2
-    # if isfield(parameter,'winLenSmooth')==0:
-    #     parameter['winLenSmooth'] = 1
-    # if isfield(parameter,'downsampSmooth')==0:
-    #     parameter['downsampSmooth'] = 1
-    # if isfield(parameter,'normThresh')==0:
-    #     parameter['normThresh'] = 10^-6
-    # if isfield(parameter,'inputFeatureRate')==0:
-    #     parameter.inputFeatureRate = 0
-    # if isfield(parameter,'save')==0:
-    #     parameter.save = 0
-    # if isfield(parameter,'saveDir')==0:
-    #     parameter.saveDir = ''
-    # if isfield(parameter,'saveFilename')==0:
-    #     parameter.saveFilename = ''
-    # if isfield(parameter,'visualize')==0:
-    #     parameter.visualize = 0
 
     # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     # % Main program
@@ -164,22 +121,6 @@ def pitch_to_CRP(f_pitch, parameter, sideinfo):
     sideinfo['CRP']['normThresh'] = parameter['normThresh']
     sideinfo['CRP']['featureRate'] = CrpFeatureRate
 
-    # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    # % Saving to file
-    # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    # if parameter.save:
-    #     filename = strcat(parameter.saveFilename,'_CRP_',num2str(parameter.winLenSmooth),'_',num2str(parameter.downsampSmooth));
-    #     save(strcat(parameter.saveDir,filename),'f_CRP','sideinfo');
-
-    # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    # % Visualization
-    # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    # if parameter.visualize
-    #     parameterVis.title = 'CRP chromagram'
-    #     parameterVis.featureRate = CrpFeatureRate
-    #     visualizeCRP(f_CRP,parameterVis);
-
-
     return f_CRP, sideinfo
 
 
@@ -214,8 +155,8 @@ def main(args=None):
     # visualizeCRP(f_crp,parameter);
     # specshow(visualizeCRP(f_crp, parameter))
 
-    print(f_crp.shape)
-    print(sideinfo)
+    #print(f_crp.shape)
+    #print(sideinfo)
 
 
 def getArgs():
