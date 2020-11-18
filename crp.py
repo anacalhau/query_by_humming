@@ -159,6 +159,22 @@ def main(args=None):
     #print(sideinfo)
 
 
+    # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    # % Visualization
+    # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+    signal,fs = librosa.load('sax_audio.wav',sr=16000, mono=True)
+    from librosa.display import specshow
+    
+    chroma = librosa.feature.chroma_stft(y=signal, sr=fs)
+
+    fig, ax = plt.subplots(figsize=(11,7))
+    img = specshow(chroma, y_axis='chroma', x_axis='time', ax=ax)
+    fig.colorbar(img, ax=ax)
+    ax.set(title='CRP chromagram')
+    print
+
 def getArgs():
     
     return None
